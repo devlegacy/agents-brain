@@ -94,7 +94,7 @@ HAS_LEGACY      = true | false
 
 #### 1. `<WIKI_DIR>/CLAUDE.md`
 
-Take the template from `references/brain-claude-md.md` and replace all placeholders:
+Take the template from `references/brain-schema.template.md` and replace all placeholders:
 
 - `{{WIKI_DIR}}` → WIKI_DIR
 - `{{COMMAND_NAME}}` → COMMAND_NAME
@@ -190,7 +190,7 @@ If the language is Spanish, the headers should be in Spanish: "Sesiones", "Conce
 
 #### 4. `<WIKI_DIR>/SOURCES.md`
 
-Use the corresponding template from `references/sources-templates.md`:
+Use the corresponding template from `references/brain-sources.template.md`:
 - Backend A (Notion) → TEMPLATE A
 - Backend B (files) → TEMPLATE B
 - Backend C (other) → TEMPLATE D (filling in `{{CUSTOM_BACKEND_NAME}}` and instructions)
@@ -207,7 +207,7 @@ Empty file so git tracks the empty directory:
 
 #### 6. `.claude/commands/<COMMAND_NAME>.md`
 
-Take the template from `references/brain-command.md` and replace:
+Take the template from `references/brain-command.template.md` and replace:
 - `{{WIKI_DIR}}` → WIKI_DIR
 - `{{COMMAND_NAME}}` → COMMAND_NAME
 - `{{PROJECT_NAME}}` → PROJECT_NAME
