@@ -294,3 +294,5 @@ When `/{{COMMAND_NAME}} plan <slug>` is invoked:
 ## Language
 
 {{LANGUAGE_RULE}}
+
+**Command responses:** All responses, questions, confirmations, reports, and status messages produced by `/{{COMMAND_NAME}}` must be in **English**, regardless of the language the user speaks in the conversation. Only wiki node content follows the language rule above.

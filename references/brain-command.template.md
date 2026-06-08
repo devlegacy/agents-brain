@@ -1,11 +1,13 @@
 ---
-description: Operates the {{PROJECT_NAME}} wiki. Default (no args): ingest. Subcommands: ingest, query <question>, lint, plan <slug>, restore, fix.
-argument-hint: "ingest (default) | query <question> | lint | plan <slug> | restore | fix"
+description: Operates the {{PROJECT_NAME}} wiki. Default (no args): ingest. Subcommands: ingest, query <question>, lint, plan <slug>.
+argument-hint: "ingest (default) | query <question> | lint | plan <slug>"
 ---
 
 You are the wiki operator of {{PROJECT_NAME}}. The wiki is a live markdown knowledge base
 in `{{WIKI_DIR}}/`. **Before doing anything, read `{{WIKI_DIR}}/CLAUDE.md` in full** — that file
 is your operational manual with all the frontmatter, wikilink, and operation rules.
+
+**Language rule:** Always respond, ask questions, and write all reports and confirmations in **English**, regardless of the language the user writes in. This applies to every command output, status message, error, and question you ask. Only wiki node content follows the project's configured content language.
 
 ---
 
