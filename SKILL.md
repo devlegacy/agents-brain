@@ -40,13 +40,13 @@ You can ask the questions in a single conversational block (it is not necessary 
 **3. Project name**
 > "What is the name of your project or organization? (used in the command description)"
 
-**4. Language of the node content**
-> "What language will you use to write the wiki content?"
-> Options: Spanish / English / Other (specify)
+**4. Language of the node content** *(optional — default: English)*
+> "Node content will be written in **English** by default. Do you need a different language? (leave blank to keep English)"
+> If the user specifies another language, accepted values: Spanish / Other (specify)
 
-Depending on the language, the sections of each node are named differently:
+The default is always English. Section names differ only when a non-English language is explicitly chosen:
+- **English (default):** Context, Decisions, Output, Pending, Cross-refs, Sources
 - Spanish: Contexto, Decisiones, Output, Pendiente, Cross-refs, Fuentes
-- English: Context, Decisions, Output, Pending, Cross-refs, Sources
 - Other: the user defines the names
 
 **5. Project areas**
@@ -80,12 +80,12 @@ WIKI_DIR        = answer Q1 (e.g.: "brain")
 COMMAND_NAME    = answer Q2 (e.g.: "brain" or "memory")
 PROJECT_NAME    = answer Q3 (e.g.: "Acme Corp")
 AREA_ENUM       = areas separated by " | " (e.g.: "marketing | ops | dev")
-SECTION_CONTEXT     = "Contexto" | "Context" | custom
-SECTION_DECISIONS   = "Decisiones" | "Decisions" | custom
+SECTION_CONTEXT     = "Context" (default) | "Contexto" | custom
+SECTION_DECISIONS   = "Decisions" (default) | "Decisiones" | custom
 SECTION_OUTPUT      = "Output" (same in all languages)
-SECTION_PENDING     = "Pendiente" | "Pending" | custom
+SECTION_PENDING     = "Pending" (default) | "Pendiente" | custom
 SECTION_CROSS_REFS  = "Cross-refs" (same in all languages)
-SECTION_SOURCES     = "Fuentes" | "Sources" | custom
+SECTION_SOURCES     = "Sources" (default) | "Fuentes" | custom
 BACKEND_TYPE    = A | B | C | D
 HAS_LEGACY      = true | false
 ```
@@ -123,9 +123,9 @@ Take the template from `references/brain-schema.template.md` and replace all pla
 - `{{LEGACY_NOTE}}` → based on HAS_LEGACY:
   - true: "**NEVER** touch the legacy session files marked as 'immutable historical' in `{{WIKI_DIR}}/SOURCES.md`. They are frozen history. New sessions go ONLY to `{{WIKI_DIR}}/sessions/`."
   - false: *(empty string)*
-- `{{LANGUAGE_RULE}}` → based on language:
+- `{{LANGUAGE_RULE}}` → based on language (default: English):
+  - English *(default)*: "- Node content: **English**.\n- Tags and slugs: **English, kebab-case**.\n- Frontmatter keys: **English**."
   - Spanish: "- Node content: **Spanish**.\n- Tags and slugs: **Spanish without accents, kebab-case**.\n- Frontmatter keys: **English** (technical convention)."
-  - English: "- Node content: **English**.\n- Tags and slugs: **English, kebab-case**.\n- Frontmatter keys: **English**."
   - Other: "- Node content: **[chosen language]**.\n- Tags and slugs: kebab-case.\n- Frontmatter keys: **English** (technical convention)."
 
 #### 2. `<WIKI_DIR>/INDEX.md`
@@ -183,7 +183,7 @@ Generate directly (there is no separate template):
 *(empty)*
 ```
 
-If the language is Spanish, the headers should be in Spanish: "Planificaciones", "Sesiones", "Conceptos".
+Headers are in English by default. If the project configures a non-English language, translate the section headers accordingly (e.g. Spanish: "Planificaciones", "Sesiones", "Conceptos").
 
 #### 3. `<WIKI_DIR>/LOG.md`
 
