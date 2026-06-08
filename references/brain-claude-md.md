@@ -74,7 +74,7 @@ Rules:
 Sections in this exact order:
 
 ```
-# <{{SECTION_TITLE}}>
+# <title from frontmatter>
 
 ## {{SECTION_CONTEXT}}
 

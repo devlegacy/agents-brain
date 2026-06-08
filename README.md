@@ -42,10 +42,10 @@ You have two options depending on whether you want to use it in one project or a
 
 ```bash
 # For a specific project (run this inside your project directory)
-git clone https://github.com/AgustinGoniDev/agents-brain .agents/skills/agents-brain
+git clone https://github.com/devlegacy/agents-brain-skill .agents/skills/agents-brain-skill
 
 # For global use (available in all your projects)
-git clone https://github.com/AgustinGoniDev/agents-brain ~/.claude/skills/agents-brain
+git clone https://github.com/devlegacy/agents-brain-skill ~/.claude/skills/agents-brain-skill
 ```
 
 ### Step 2 — Run the skill from Claude Code

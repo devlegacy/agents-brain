@@ -276,7 +276,7 @@ Command: /<COMMAND_NAME> (ingest | query | lint)
 2. You can migrate historical sessions manually: copy the content, add
    the YAML frontmatter, and save to <WIKI_DIR>/sessions/YYYY-MM-DD-slug.md
 </IF HAS_LEGACY>
-4. At the end of your first work session, run `/<COMMAND_NAME> ingest`
+4. At the end of each work session, run `/<COMMAND_NAME> ingest`
 ```
 
 ---

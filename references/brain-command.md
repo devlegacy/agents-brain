@@ -1,6 +1,6 @@
 ---
-description: Operates the internal wiki of {{PROJECT_NAME}}. Subcommands: ingest (default), query, lint.
-argument-hint: "[ingest | query <question> | lint]"
+description: Operates the {{PROJECT_NAME}} wiki. Default (no args): ingest. Subcommands: ingest, query <question>, lint, restore, fix.
+argument-hint: "ingest (default) | query <question> | lint | restore | fix"
 ---
 
 You are the wiki operator of {{PROJECT_NAME}}. The wiki is a live markdown knowledge base
@@ -13,7 +13,8 @@ is your operational manual with all the frontmatter, wikilink, and operation rul
 
 Parse `$ARGUMENTS`:
 - Empty or `ingest` → **INGEST** mode.
-- Starts with `query` → **QUERY** mode with the rest as the question.
+- Starts with `query` followed by a non-empty string → **QUERY** mode with the rest as the question.
+- Equals exactly `query` (no question) → ask "What do you want to query the wiki about?" and abort until the user provides a question.
 - `lint` → **LINT** mode.
 - Anything else → ask the user for clarification and abort.
 
@@ -64,6 +65,9 @@ what happened in THIS conversation.
 
 Objective: answer a question using the wiki as a base, with verifiable citations.
 
+0. **Guard:** if the question extracted from `$ARGUMENTS` is empty or blank, respond:
+   > "What do you want to query the wiki about?"
+   Then **abort** — do not read any files until the user replies with a question.
 1. Read `{{WIKI_DIR}}/CLAUDE.md` and `{{WIKI_DIR}}/INDEX.md` in full.
 2. From the index one-liners, select 1-5 candidate nodes for the question.
    If none seem relevant, say so and suggest broadening the search.
