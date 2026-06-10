@@ -204,10 +204,9 @@ When `/{{COMMAND_NAME}} ingest` is invoked:
     f. Add `[[this-session-slug]] — advanced this plan` to the planning's `## Cross-refs`.
     g. Add `[[planning-slug]] — advanced this plan` to the session's `## {{SECTION_CROSS_REFS}}`.
     h. Append to `{{WIKI_DIR}}/LOG.md`: `## [YYYY-MM-DD HH:MM] update | <planning-slug>`
+    If `created_by` in the planning is null, set it to this session's slug.
     If no planning is referenced, skip this step silently.
-
 {{LEGACY_NOTE}}
-
 ---
 
 ## Query rules
@@ -262,9 +261,14 @@ When `/{{COMMAND_NAME}} plan <slug>` is invoked:
 **If the planning node already exists** (`{{WIKI_DIR}}/plannings/<slug>.md`):
 1. Read the planning node in full.
 2. Show the user: title, status, progress, open tasks, and last session in `updated_by`.
-3. Ask: "What do you want to update? (tasks / objective / context / status / other)"
-4. Apply the requested changes in-place.
-5. Append to `{{WIKI_DIR}}/LOG.md`: `## [YYYY-MM-DD HH:MM] update | <slug>`
+3. Ask: "What do you want to update? (tasks / objective / context / status / decisions / other)"
+4. Apply the requested changes in-place. For task updates, use `- [x]` / `- [ ]` syntax. For status, use the valid enum.
+5. Recompute `progress` if tasks changed.
+6. Append to `{{WIKI_DIR}}/LOG.md`:
+   ```
+   ## [YYYY-MM-DD HH:MM] update | <slug>
+   - Changed: <what was updated>
+   ```
 
 **If the planning node does NOT exist** → CREATE:
 1. Ask the user (can ask all at once):

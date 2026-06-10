@@ -72,9 +72,7 @@ what happened in THIS conversation.
     h. Append to `{{WIKI_DIR}}/LOG.md`: `## [YYYY-MM-DD HH:MM] update | <planning-slug>`
     If `created_by` in the planning is null, set it to this session's slug.
     If no planning node is referenced in the conversation, skip this step silently.
-
 {{LEGACY_INGEST_NOTE}}
-
 ---
 
 ## QUERY mode

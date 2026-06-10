@@ -187,6 +187,8 @@ Headers are in English by default. If the project configures a non-English langu
 
 #### 3. `<WIKI_DIR>/LOG.md`
 
+Before writing this file, run `date +%H:%M` via Bash to get the current time and use it as `HH:MM`.
+
 ```markdown
 # <WIKI_DIR> — Operations Log
 
@@ -196,7 +198,7 @@ Headers are in English by default. If the project configures a non-English langu
 
 ---
 
-## [<TODAY'S DATE> <CURRENT TIME>] bootstrap | wiki-initialized
+## [<TODAY'S DATE> HH:MM] bootstrap | wiki-initialized
 - Created: CLAUDE.md, INDEX.md, LOG.md, SOURCES.md, sessions/, plannings/
 - Areas: <AREA_ENUM>
 - Backend: <BACKEND_TYPE description>
