@@ -1,6 +1,6 @@
 # agents-brain
 
-A Claude Code skill that installs an **LLM Wiki** (an Obsidian-style knowledge base) in any project. A single command and Claude configures everything: an interconnected markdown wiki with session nodes, a dense index, an append-only log, and a slash command (`/brain`) for ingest, query, and lint operations.
+A Claude Code skill that installs an **LLM Wiki** (an Obsidian-style knowledge base) in any project. A single command and Claude configures everything: an interconnected markdown wiki with session nodes, a dense index, an append-only log, and a slash command (`/brain`) for ingest, plan, query, and lint operations.
 
 ## What you get
 
@@ -23,9 +23,9 @@ The wiki is maintained by Claude through four commands:
 | Command | What it does |
 |---------|--------------|
 | `/brain ingest` | Creates a session node from the current conversation. Extracts decisions, outputs, cross-references, and pending items. Updates the index, log, and any related planning nodes automatically. |
+| `/brain plan <slug>` | Creates or updates a planning node — a living document that tracks tasks, progress, and the sessions that created and advanced the plan. |
 | `/brain query <question>` | Answers using the wiki as a source, with `[[wikilink]]` citations. Fetches updated content from external sources when necessary. |
 | `/brain lint` | Health check: broken wikilinks, orphan nodes, outdated claims, missing cross-references, stale plannings, candidates for new concepts. Read-only. |
-| `/brain plan <slug>` | Creates or updates a planning node — a living document that tracks tasks, progress, and the sessions that created and advanced the plan. |
 
 ## Prerequisites
 
@@ -42,12 +42,22 @@ Before installing, make sure you have:
 
 You have two options depending on whether you want to use it in one project or all projects:
 
-```bash
-# For a specific project (run this inside your project directory)
-git clone https://github.com/devlegacy/agents-brain-skill .agents/skills/agents-brain-skill
+For a specific project (run this inside your project directory):
+```sh
+git clone git@github.com:devlegacy/agents-brain.git ./.claude/skills/agents-brain
+```
 
-# For global use (available in all your projects)
-git clone https://github.com/devlegacy/agents-brain-skill ~/.claude/skills/agents-brain-skill
+```sh
+git clone https://github.com/devlegacy/agents-brain ./.claude/skills/agents-brain
+```
+
+For global use (available in all your projects):
+```sh
+git clone git@github.com:devlegacy/agents-brain.git ~/.claude/skills/agents-brain
+```
+
+```sh
+git clone https://github.com/devlegacy/agents-brain ~/.claude/skills/agents-brain
 ```
 
 ### Step 2 — Run the skill from Claude Code
@@ -60,7 +70,7 @@ Open Claude Code in your project and run:
 
 Claude will ask you the configuration questions (it can ask them all at once) and will automatically generate the entire structure.
 
-> If the `/agents-brain` command doesn't appear, verify that the skill is in the correct folder: `.agents/skills/agents-brain-skill/` (for the project) or `~/.claude/skills/agents-brain-skill/` (global).
+> If the `/agents-brain` command doesn't appear, verify that the skill is in the correct folder: `./.claude/skills/agents-brain/` (for the project) or `~/.claude/skills/agents-brain/` (global).
 
 ## Configuration questions
 
