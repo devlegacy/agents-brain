@@ -80,7 +80,7 @@ When running `/agents-brain`, Claude will ask you the following:
 What to call the main folder. The default is `brain`, but you can use `wiki`, `knowledge`, `memory`, etc.
 
 ### 2. Slash command name
-The command you will use to operate the wiki. The default is the same as the directory name. For example, if you choose `memory`, the commands would be `/memory ingest`, `/memory query`, `/memory lint`, `/memory plan`.
+The command you will use to operate the wiki. The default is the same as the directory name. For example, with the default `brain`, the commands are `/brain ingest`, `/brain query`, `/brain lint`, `/brain plan`.
 
 ### 3. Project name
 Used in the internal description of the command. It can be the name of your company, team, or product.
